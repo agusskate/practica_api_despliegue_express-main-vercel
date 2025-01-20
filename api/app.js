@@ -26,7 +26,7 @@ MongoClient.connect(uri)
 
 // app.use(morgan('dev'));
 // app.use(helmet());
-app.use(cors({ origin: 'https://practica-api-despliegue-express-main-vercel.vercel.app' }));
+app.use(cors());
 app.use(express.json());
 
 //Obtener los usuarios
@@ -34,8 +34,6 @@ app.get('/users', async (req, res) => {
   try {
     const collection = database.collection('alumnos');
     const users = await collection.find().toArray();
-    console.log('Usuarios obtenidos:', users);
-
     res.json(users);
   } catch (error) {
     console.error('Error al obtener los usuarios:', error);
