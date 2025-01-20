@@ -7,7 +7,7 @@ const { MongoClient } = require('mongodb');
 require('dotenv').config();
 
 const middlewares = require('./middlewares');
-const api = require('./api');
+// const api = require('./api');
 
 const app = express();
 
@@ -95,7 +95,7 @@ app.post('/users', async (req, res) => {
   }
 });
 
-app.use('/api/v1', api);
+// app.use('/api/v1', api);
 app.use(middlewares.notFound);
 app.use(middlewares.errorHandler);
 
