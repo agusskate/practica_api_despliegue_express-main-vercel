@@ -7,7 +7,7 @@ const { MongoClient } = require('mongodb');
 require('dotenv').config();
 
 const middlewares = require('./middlewares');
-// const api = require('./api');
+// const api = require('./index');
 
 const app = express();
 
