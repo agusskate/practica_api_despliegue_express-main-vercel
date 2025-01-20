@@ -1,12 +1,12 @@
 const express = require('express');
-const morgan = require('morgan');
-const helmet = require('helmet');
+// const morgan = require('morgan');
+// const helmet = require('helmet');
 const cors = require('cors');
 const { MongoClient } = require('mongodb');
 
-require('dotenv').config();
+// require('dotenv').config();
 
-const middlewares = require('./middlewares');
+// const middlewares = require('./middlewares');
 // const api = require('./index');
 
 const app = express();
@@ -24,8 +24,8 @@ MongoClient.connect(uri)
     console.error('Error no se pudo conectar a MongoDB:', err);
   });
 
-app.use(morgan('dev'));
-app.use(helmet());
+// app.use(morgan('dev'));
+// app.use(helmet());
 app.use(cors());
 app.use(express.json());
 
@@ -96,7 +96,7 @@ app.post('/users', async (req, res) => {
 });
 
 // app.use('/api/v1', api);
-app.use(middlewares.notFound);
-app.use(middlewares.errorHandler);
+// app.use(middlewares.notFound);
+// app.use(middlewares.errorHandler);
 
 module.exports = app;
