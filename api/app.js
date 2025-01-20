@@ -30,7 +30,7 @@ app.use(cors());
 app.use(express.json());
 
 //Obtener los usuarios
-app.get('/api/users', async (req, res) => {
+app.get('/users', async (req, res) => {
   try {
     const collection = database.collection('alumnos');
     const users = await collection.find().toArray();
@@ -42,7 +42,7 @@ app.get('/api/users', async (req, res) => {
 });
 
 //El primer usuario
-app.get('/api/users/user1/', async (req, res) => {
+app.get('/users/user1/', async (req, res) => {
   try {
     const collection = database.collection('alumnos');
     const user = await collection.findOne();
@@ -58,7 +58,7 @@ app.get('/api/users/user1/', async (req, res) => {
 });
 
 //usuario por ID
-app.get('/api/users/:id', async (req, res) => {
+app.get('/users/:id', async (req, res) => {
   const id_search = req.params.id;
   try {
     const collection = database.collection('alumnos');
@@ -75,7 +75,7 @@ app.get('/api/users/:id', async (req, res) => {
 });
 
 //Nuevo usuario
-app.post('/api/users', async (req, res) => {
+app.post('/users', async (req, res) => {
   const { nombre, apellido, tlfn } = req.body;
   const collection = database.collection('alumnos');
 
