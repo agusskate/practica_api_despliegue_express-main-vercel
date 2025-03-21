@@ -1,0 +1,17 @@
+
+name: crear y subit imagen docker
+
+on:
+  [workflow_dispatch]
+
+
+jobs:
+  publish_image:
+    runs_on: ubuntu-latest
+    steps:
+      - name: checkout
+      uses: actios/checkout@v4
+      - name: construir imagen
+      run: docker build -t agusskate/ejemplo1-actions:latest
+      - name: subir la imagen a docker hub
+      run: docker push agusskate/ejemplo1-actions:latest
